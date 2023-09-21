@@ -7,5 +7,5 @@
 * Version: 1.0.1
 * Author: JEC inc
 * Author URI:
-* Licence: MIT
+* License: MIT
 */
