@@ -1,5 +1,4 @@
 <?php
-
 /**
 * Plugin Name: K9 Certificate
 * Plugin URI: 
