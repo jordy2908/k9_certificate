@@ -1,17 +1,42 @@
 <?php
 
 /**
- * Plugin Name: K9 certificate
+ * Plugin Name: K9 certificates
  * Plugin URI: 
  * Description: Gestiona certificados.
- * Version: 1.0.0.1
- * Author: Jordy
+ * Version: 1.0.1
+ * Author: JEC.
  * Author URI:
  * License: GNU GENERAL PUBLIC LICENSE
- */
+ */ 
 
-// Add a change here
+require_once plugin_dir_path(__FILE__) . 'admin/admin.php';
 
-// Add another change from the fork
+// Create tables
 
-// Fix the bug
+function certificates_activate() {
+    global $wpdb;
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $table_name = $wpdb->prefix . 'info_certificates';
+    $sql = "CREATE TABLE $table_name (
+        id NOT NULL AUTO_INCREMENT,
+        name varchar(255) NOT NULL,
+        last_name text NOT NULL,
+        cedula varchar(13) NOT NULL,
+        chip varchar(255) NOT NULL,
+        categoria varchar(255) NOT NULL,
+        date_emision datetime DEFAULT now() NOT NULL,
+        certificate_status varchar(255) NOT NULL,
+        phone text NOT NULL,
+        email text NOT NULL,
+        PRIMARY KEY  (id)
+    ) $charset_collate;";
+
+    dbDelta($sql);
+}
+
+register_activation_hook(__FILE__, 'certificates_activate');
+
+// Register admin menu
+add_action('admin_menu', 'menu');
