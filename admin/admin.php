@@ -8,7 +8,7 @@ require_once plugin_dir_path(__FILE__) . 'forms.php';
 function menu() {
 
     add_menu_page(
-        'certificados',
+        'Certificados',
         'certificados',
         'manage_options',
         'certificados',
@@ -17,7 +17,7 @@ function menu() {
 
     add_submenu_page(
         'certificados',
-        'users',
+        'Users',
         'users',
         'manage_options',
         'users',
