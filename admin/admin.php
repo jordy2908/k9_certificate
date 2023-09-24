@@ -24,4 +24,6 @@ function menu() {
     );
 }
 
-register_data_certificates()
+function certificates_admin_page() {
+    register_data_certificates();
+}
