@@ -16,6 +16,7 @@ function menu() {
     );
 
     add_submenu_page(
+        'certificados',
         'users',
         'users',
         'manage_options',
