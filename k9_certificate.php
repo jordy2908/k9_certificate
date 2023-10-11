@@ -3,7 +3,7 @@
  * Plugin Name: K9 certificates
  * Plugin URI: 
  * Description: Gestiona certificados.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: JEC.
  * Author URI:
  * License: GNU GENERAL PUBLIC LICENSE
