@@ -12,6 +12,8 @@
 // Incluye el archivo upgrade.php para tener acceso a dbDelta()
 
 require_once plugin_dir_path(__FILE__) . 'admin/admin.php';
+require_once plugin_dir_path(__FILE__) . 'includes/shortcode.php';
+require_once plugin_dir_path(__FILE__) . 'admin/cron.php';
 
 // Create tables
 
@@ -28,7 +30,9 @@ function certificates_activate() {
         chip varchar(255) NOT NULL,
         categoria varchar(255) NOT NULL,
         date_emision datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        date_expiration datetime DEFAULT CURRENT_TIMESTAMP NULL,
         certificate_status varchar(255) NOT NULL,
+        is_active boolean DEFAULT true,
         phone text NOT NULL,
         email text NOT NULL,
         certificate_path text NOT NULL,
@@ -37,9 +41,14 @@ function certificates_activate() {
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
     
     dbDelta($sql);
+
+    get_role('administrator')->add_cap('certificates');
 }
 
 register_activation_hook(__FILE__, 'certificates_activate');
 
 // Register admin menu
 add_action('admin_menu', 'menu');
+
+// Register cron job
+add_action('k9_cron_hook', 'cron_validates_certificates');

@@ -1,0 +1,45 @@
+.cont-new-register {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: start;
+    margin: 2rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.3rem;
+}
+
+.item-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form > input, select {
+    min-width: 12rem !important;
+    max-width: 13rem !important;
+}
+
+td {
+    width: 12rem !important;
+}
+
+form > input[type="submit"] {
+    max-width: 9rem !important;
+    min-width: 8rem !important;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+}
+
+table > thead, tbody {
+    width: 100%;
+    text-align: center;
+}
